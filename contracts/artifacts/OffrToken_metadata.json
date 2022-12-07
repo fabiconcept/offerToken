@@ -1,0 +1,1249 @@
+{
+	"compiler": {
+		"version": "0.7.6+commit.7338295f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "uint8",
+						"name": "decimals_",
+						"type": "uint8"
+					},
+					{
+						"internalType": "uint256",
+						"name": "cap_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "rate_",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "beneficiary_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "tokenholder",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountUSDC",
+						"type": "uint256"
+					}
+				],
+				"name": "AmountPaidOut",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beneficiary",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountUSDC",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsReleased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "project_owner",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountUSDC",
+						"type": "uint256"
+					}
+				],
+				"name": "PaymentReceived",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "previousAdminRole",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "newAdminRole",
+						"type": "bytes32"
+					}
+				],
+				"name": "RoleAdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleGranted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"name": "RoleRevoked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "transmitter",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountUSDC",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amountToken",
+						"type": "uint256"
+					}
+				],
+				"name": "TokensPurchased",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "value",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "DEFAULT_ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINTER_ROLE",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_beneficiary",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_cap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_rate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_uniswapRouter",
+				"outputs": [
+					{
+						"internalType": "contract IUniswapV2Router02",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_usdcInstance",
+				"outputs": [
+					{
+						"internalType": "contract IERC20",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_usdcToken",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "accumulativeAmountOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					}
+				],
+				"name": "allowance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "spender",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcAmount_",
+						"type": "uint256"
+					}
+				],
+				"name": "buyTokens",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cap",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "claimableAmountOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "convertEthToUsdc",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "decimals",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleAdmin",
+				"outputs": [
+					{
+						"internalType": "bytes32",
+						"name": "",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "uint256",
+						"name": "index",
+						"type": "uint256"
+					}
+				],
+				"name": "getRoleMember",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					}
+				],
+				"name": "getRoleMemberCount",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "grantRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "hasRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "rate",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "usdcAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "receivePayment",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "releaseFunds",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "renounceRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes32",
+						"name": "role",
+						"type": "bytes32"
+					},
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "revokeRole",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "buyer",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "sendTokens",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "tokensale_open",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transfer",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "recipient",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawAmount",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_owner",
+						"type": "address"
+					}
+				],
+				"name": "withdrawnAmountOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"author": "Fabiconcept (Fabian Ajokubi T.)",
+			"details": "Value is stored as USDC. The implementation has not been audited.",
+			"events": {
+				"AmountPaidOut(address,uint256)": {
+					"params": {
+						"amountUSDC": "amount of the paid out USDC",
+						"tokenholder": "address of the investor / tokenholder"
+					}
+				},
+				"FundsReleased(address,uint256)": {
+					"params": {
+						"amountUSDC": "amount of the released USDC",
+						"beneficiary": "adress of the beneficiary"
+					}
+				},
+				"PaymentReceived(address,uint256)": {
+					"params": {
+						"amountUSDC": "amount of the received USDC ",
+						"project_owner": "address of the beneficiary"
+					}
+				},
+				"TokensPurchased(address,address,uint256,uint256)": {
+					"params": {
+						"amountToken": "amount of purchased tokens",
+						"amountUSDC": "amount of USDC for the token purchase",
+						"buyer": "address of the buyer",
+						"transmitter": "address of the initiator"
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"accumulativeAmountOf(address)": {
+					"params": {
+						"_owner": "address of the account"
+					},
+					"returns": {
+						"_0": "total amount of funds that were claimable"
+					}
+				},
+				"allowance(address,address)": {
+					"params": {
+						"owner": "address of the account which owns the tokens",
+						"spender": "address of the account that is allowed to spend the tokens"
+					},
+					"returns": {
+						"_0": "amount of spendable tokens"
+					}
+				},
+				"approve(address,uint256)": {
+					"params": {
+						"amount": "amount to allow for spender to send",
+						"spender": "address of the spender account"
+					},
+					"returns": {
+						"_0": "boolean indicating whether the operation succeeded"
+					}
+				},
+				"balanceOf(address)": {
+					"params": {
+						"account": "address of the account "
+					},
+					"returns": {
+						"_0": "amount of tokens hold by an address"
+					}
+				},
+				"buyTokens(uint256)": {
+					"details": "if the transaction will be send with ETH, then the tokenbuy will be performed by exchanging these ETH to the given USDC amount",
+					"params": {
+						"usdcAmount_": "amount of USDC that will be invested"
+					}
+				},
+				"cap()": {
+					"returns": {
+						"_0": "The cap"
+					}
+				},
+				"claimableAmountOf(address)": {
+					"params": {
+						"_owner": "address of the account"
+					},
+					"returns": {
+						"_0": "total amount of funds that are claimable"
+					}
+				},
+				"constructor": {
+					"params": {
+						"beneficiary_": "Address of the beneficiary",
+						"cap_": "Fund raising cap",
+						"decimals_": "Decimals",
+						"name_": "Name",
+						"rate_": "Conversion Rate USDC <-> Security Token",
+						"symbol_": "Symbol"
+					}
+				},
+				"convertEthToUsdc(uint256)": {
+					"params": {
+						"usdcAmount": "amount of USDC that will be purchased"
+					}
+				},
+				"decimals()": {
+					"returns": {
+						"_0": "The decimals"
+					}
+				},
+				"getRoleAdmin(bytes32)": {
+					"details": "Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role's admin, use {_setRoleAdmin}."
+				},
+				"getRoleMember(bytes32,uint256)": {
+					"details": "Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information."
+				},
+				"getRoleMemberCount(bytes32)": {
+					"details": "Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role."
+				},
+				"grantRole(bytes32,address)": {
+					"details": "Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``'s admin role."
+				},
+				"hasRole(bytes32,address)": {
+					"details": "Returns `true` if `account` has been granted `role`."
+				},
+				"name()": {
+					"returns": {
+						"_0": "The Name"
+					}
+				},
+				"rate()": {
+					"returns": {
+						"_0": "The rate"
+					}
+				},
+				"receivePayment(uint256)": {
+					"params": {
+						"usdcAmount": "amount that the beneficiary will pay "
+					}
+				},
+				"renounceRole(bytes32,address)": {
+					"details": "Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function's purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`."
+				},
+				"revokeRole(bytes32,address)": {
+					"details": "Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``'s admin role."
+				},
+				"sendTokens(address,uint256)": {
+					"params": {
+						"amount": "amount of tokens to be minted",
+						"buyer": "address of the token buyer"
+					}
+				},
+				"symbol()": {
+					"returns": {
+						"_0": "The symbol"
+					}
+				},
+				"tokensale_open()": {
+					"returns": {
+						"_0": "boolean fundraising open"
+					}
+				},
+				"totalSupply()": {
+					"returns": {
+						"_0": "amount of supplied token"
+					}
+				},
+				"transfer(address,uint256)": {
+					"params": {
+						"amount": "amount of the tokens to transfer",
+						"recipient": "adddress of the recipient"
+					},
+					"returns": {
+						"_0": "boolean transfer was sucessfull"
+					}
+				},
+				"transferFrom(address,address,uint256)": {
+					"params": {
+						"amount": "amount of tokens to send",
+						"recipient": "address of the account which owns the tokens",
+						"sender": "address of the account which owns the tokens"
+					},
+					"returns": {
+						"_0": "boolean indicating whether the operation succeeded"
+					}
+				},
+				"withdrawnAmountOf(address)": {
+					"params": {
+						"_owner": "address of the account"
+					},
+					"returns": {
+						"_0": "total amount of funds that have been withdrawn"
+					}
+				}
+			},
+			"title": "Offr Token implementation - Distributing Security Token for one-time fundraising ",
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"AmountPaidOut(address,uint256)": {
+					"notice": "payment to the investor event"
+				},
+				"FundsReleased(address,uint256)": {
+					"notice": "Release of raised funds event"
+				},
+				"PaymentReceived(address,uint256)": {
+					"notice": "received payment from beneficiary event"
+				},
+				"TokensPurchased(address,address,uint256,uint256)": {
+					"notice": "Token purchase event"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"accumulativeAmountOf(address)": {
+					"notice": "Returns the total amount of funds that were claimable for a specified account"
+				},
+				"allowance(address,address)": {
+					"notice": "Returns the remaining number of tokens that spender will be allowed to spend on behalf of owner through transferFrom. This is zero by default."
+				},
+				"approve(address,uint256)": {
+					"notice": "Sets `amount` as the allowance of spender over the callers tokens"
+				},
+				"balanceOf(address)": {
+					"notice": "Returns the balance of a specific address"
+				},
+				"buyTokens(uint256)": {
+					"notice": "Function for investors to buy tokens with ETH or USDC"
+				},
+				"cap()": {
+					"notice": "Returns funding cap"
+				},
+				"claimableAmountOf(address)": {
+					"notice": "Returns the total amount of funds that are claimable for a specified account"
+				},
+				"constructor": {
+					"notice": "Initialization of the Security Token"
+				},
+				"convertEthToUsdc(uint256)": {
+					"notice": "Functions that converts ETH to USDC"
+				},
+				"decimals()": {
+					"notice": "Returns the decimals"
+				},
+				"name()": {
+					"notice": "Returns the name"
+				},
+				"rate()": {
+					"notice": "Returns the rate"
+				},
+				"receivePayment(uint256)": {
+					"notice": "Function that receives payments from beneficiary and distribute them to the tokenholders"
+				},
+				"releaseFunds()": {
+					"notice": "Function to release the funding to the beneficiary"
+				},
+				"sendTokens(address,uint256)": {
+					"notice": "Minting function for registered distributors"
+				},
+				"symbol()": {
+					"notice": "Returns the symbol"
+				},
+				"tokensale_open()": {
+					"notice": "Returns if the fundrasing is still open"
+				},
+				"totalSupply()": {
+					"notice": "Returns the total token supply"
+				},
+				"transfer(address,uint256)": {
+					"notice": "Transfers `amount` of tokens to a `recipient`"
+				},
+				"transferFrom(address,address,uint256)": {
+					"notice": "Moves amount tokens from sender to recipient using the allowance mechanism. amount is then deducted from the caller’s allowance."
+				},
+				"withdrawAmount()": {
+					"notice": "Function to claim the claimable funds"
+				},
+				"withdrawnAmountOf(address)": {
+					"notice": "Returns the total amount of funds that have been withdrawn for a specified account"
+				}
+			},
+			"notice": "You can use this security token implementation to raise one-time funds and distribute USDC to token holders on a regular basis",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SIPilotToken.sol": "OffrToken"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts//access/AccessControl.sol": {
+			"keccak256": "0x4fc155a2f7837603d69a13cfa481eb5e7f5e02cb77e2ec9edbac30986db37988",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0855147e38b5e36288a8df73b8da49132f14ec7abb19041b0c98872263643aaa",
+				"dweb:/ipfs/QmSrSysyFUYQq7hbJaJXG7EyZW6ezDBzEJx3SABp6eiJSS"
+			]
+		},
+		"@openzeppelin/contracts/GSN/Context.sol": {
+			"keccak256": "0x9486045e189facd2e868ece35249872598ef03f1087fb6fa4d1161842daa2287",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://77c3a04ef8453788b14b1ebbc24dd3f0a18ceb2615cd156aac949a611e552af8",
+				"dweb:/ipfs/QmcmqWGguRM3iLuF57tcyrN3F6EA63kzeNkDfQuteBnurr"
+			]
+		},
+		"@openzeppelin/contracts/math/SafeMath.sol": {
+			"keccak256": "0xcc78a17dd88fa5a2edc60c8489e2f405c0913b377216a5b26b35656b2d0dab52",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://526dc85e1f9b9b45830e202568d267d93dde7a4fcccf4ad7798dadcd92304d3c",
+				"dweb:/ipfs/QmaoXMB972J3cSDLtBq3xBo4jLwqD2uzXTwujtSPqkYVhR"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+			"keccak256": "0xca0c2396dbeb3503b51abf4248ebf77a1461edad513c01529df51850a012bee3",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://991b44ff44e0496e8554a90f4c0512c28faed45104d40430019f3c67ea67740e",
+				"dweb:/ipfs/Qmc3nRapVbcctELoZS5qe17zLkFB3bETBfwzCTMF1CSuGE"
+			]
+		},
+		"@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+			"keccak256": "0x5f02220344881ce43204ae4a6281145a67bc52c2bb1290a791857df3d19d78f5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://24427744bd3e6cb73c17010119af12a318289c0253a4d9acb8576c9fb3797b08",
+				"dweb:/ipfs/QmTLDqpKRBuxGxRAmjgXt9AkXyACW3MtKzi7PYjm5iMfGC"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x28911e614500ae7c607a432a709d35da25f3bc5ddc8bd12b278b66358070c0ea",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://256c8c8af5eb072bc473226ab2b2187149b8fc04f5f4a4820db22527f5ce8e3c",
+				"dweb:/ipfs/QmRvi5BhnL7Rxf85KrJhwM6RRhukm4tzoctRdgQEheNyiN"
+			]
+		},
+		"@openzeppelin/contracts/utils/Context.sol": {
+			"keccak256": "0x8d3cb350f04ff49cfb10aef08d87f19dcbaecc8027b0bed12f3275cd12f38cf0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ded47ec7c96750f9bd04bbbc84f659992d4ba901cb7b532a52cd468272cf378f",
+				"dweb:/ipfs/QmfBrGtQP7rZEqEg6Wz6jh2N2Kukpj1z5v3CGWmAqrzm96"
+			]
+		},
+		"@openzeppelin/contracts/utils/EnumerableSet.sol": {
+			"keccak256": "0x1562cd9922fbf739edfb979f506809e2743789cbde3177515542161c3d04b164",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://4580d57781513d98870d9738c7d39094336e0a70cdb90d68dad549c6ced466ec",
+				"dweb:/ipfs/Qmf9YZzzRFuvMnav9dgmeRUpdYMMECiZX8w25sHWVbA18V"
+			]
+		},
+		"contracts/SIPilotToken.sol": {
+			"keccak256": "0x8c7a39501a24fe010d8fcfea29bb5a26ed4532851df98f06576427a8ddbefa2b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d8f1aa6c19786e0350272a4b5d3b3ea62546254ec61facb8bea201ba711fd050",
+				"dweb:/ipfs/QmNpP9CFxwBSkdv9gCauyUSYXHp9pfAjnGuYZYy4nTJTBq"
+			]
+		},
+		"contracts/math/SafeMathInt.sol": {
+			"keccak256": "0x033878e35bdff0857f4dd78a78921ea8fa772452a98d9dda13443b7e6be8dbb5",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b292cde37f370d465584d8500e276ba54060da3c48d1fe270b93589b0f73a9a3",
+				"dweb:/ipfs/QmV7vD1p2EwfDYUCBjR4xcQYtoCcmq2ksasUj9joHYVkah"
+			]
+		},
+		"contracts/math/SafeMathUint.sol": {
+			"keccak256": "0xf8cf9864e0540dbf40de4f3c7d6c07b67b64f081f928f8674bed0d42c6e118f7",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://baa183bf09655d5d2aa722511044e52cc9f9cb0ec00e3ee599e45118f581ddae",
+				"dweb:/ipfs/QmWDmG4JJz9J9sGwz4QEHzQCayHPCU59zNHzrE3d2rARhv"
+			]
+		},
+		"contracts/uniswap/IUniswapV2Router01.sol": {
+			"keccak256": "0x2698329f35127559498658df11c438943f02c3e5bae5635689795019947dec54",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://0316ab50a9e7e14f9b46df16b9fd29c5e5fd67f15ee3a944b501b60f5bb24d77",
+				"dweb:/ipfs/QmRYXcwSPhBGGtwDxJ3MFASkPvSMceXNWicVBT6yEeAdun"
+			]
+		},
+		"contracts/uniswap/IUniswapV2Router02.sol": {
+			"keccak256": "0x4f2c020703fbd6b1e75dfe16329aa36629a1a8a267fdd196883239c09d350f8c",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://23e77b85de283e6740c8733fdce54c8b2f08f890814935baaf7fa60325990c59",
+				"dweb:/ipfs/QmWcE5XJFyzLYhd2wdDuAWcxmCYpxa5hkLBFiCmeAMHMEX"
+			]
+		}
+	},
+	"version": 1
+}
